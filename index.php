@@ -32,12 +32,13 @@ function main() {
 	<script src='http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js'></script>
 	<script src='js/eat.js'></script>
   	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'> 
 </head>
 
 <body>
 	<input type='hidden' id='hidden_count' value='$hidden_count'>
-	<div id='div_show' style='height:200px;display:none;text-align:center'></div>
-	<div id='div_btn'><input type='button' id='btn_go' data-icon='check' data-iconpos='top' value='go' onclick='onclkGo();'></div>
+	<div id='div_show' style='height:200px;display:none;text-align:center;font-size:48pt;line-height:200px'></div>
+	<div id='div_btn' style='text-align:center'><input type='button' id='btn_go' data-icon='check' data-iconpos='top' value='吃什麼' data-inline='true' onclick='onclkGo();'></div>
 </body></html>";
 	echo $str;
 }

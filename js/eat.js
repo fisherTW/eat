@@ -21,13 +21,13 @@ function onclkGo() {
 
 function processData(data) {
 	countRound++;
-	$('#div_show').html('<h1>' + data + '</h1>').show();
+	$('#div_show').html(data).show();
 	if(countRound < parseInt($('#hidden_count').val())) {
 		$('#div_show').removeClass().addClass('flipInX animated');
 		window.setTimeout( function(){
 			$('#div_show').removeClass();
 			onclkGo();
-		}, 1000);
+		}, 500);
 	} else {
 		$('#div_show').removeClass().addClass('tada animated');
 		window.setTimeout( function(){
