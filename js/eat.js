@@ -32,9 +32,10 @@ function processData(data) {
 		$('#div_show').removeClass().addClass('tada animated');
 		window.setTimeout( function(){
 			$('#div_show').removeClass();
+			$('#btn_go').val('再一次').button('refresh');
+			$('#btn_go').buttonMarkup({ icon: "refresh" });
+			$('#div_btn').show();
 		}, 1500);
-		$('#btn_go').val('再一次').buttonMarkup({ icon: "refresh" }).button('refresh');
-		$('#div_btn').show();
 		countRound = 0;	// reset counter
 	}
 	
