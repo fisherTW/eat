@@ -1,4 +1,5 @@
 var countRound = 0;
+var ERROR_EMPTY_SESSION = -1001;
 
 function onclkGo() {
 	var request_url = "index.php";
@@ -21,7 +22,23 @@ function onclkGo() {
 
 function processData(data) {
 	countRound++;
+	
+	var ary_tmp = data.split('][');
+	var data = ary_tmp[0];
+	var msg = ary_tmp[1];
+	
+	if(parseInt(data) < 0) {
+		switch(parseInt(data)) {
+			case ERROR_EMPTY_SESSION:
+				$('#div_show').html(msg).show();break;
+		}
+		
+		$('#div_btn').show();
+		return;
+	}
+
 	$('#div_show').html(data).show();
+
 	if(countRound < parseInt($('#hidden_count').val())) {
 		$('#div_show').removeClass().addClass('flipInX animated');
 		window.setTimeout( function(){

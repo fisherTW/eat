@@ -1,14 +1,5 @@
-$(document).ready(function(){
-	$('a[fType=del]').bind( "click", function() {
-  		onclkDel($(this));
-	});
-	$('a[fType=add]').bind( "click", function() {
-  		onclkAdd($(this));
-	});
-});
-
 function onclkDel(obj) {
-	var request_url = "setting.php";
+	var request_url = "index.php";
 	var odata = {ajax:1,req:'onclkDel',fVal:obj.attr('fVal'),callback:'process_onclkDel'};
 	
 	$.ajax({
@@ -25,7 +16,7 @@ function onclkDel(obj) {
 }
 
 function onclkAdd(obj) {
-	var request_url = "setting.php";
+	var request_url = "index.php";
 	var odata = {ajax:1,req:'onclkAdd',txt_add:$('#txt_add').val(),callback:'process_onclkDel'};
 	
 	$.ajax({
@@ -48,6 +39,7 @@ function process_onclkDel(data) {
 function process_onclkAdd(data) {
 	$(data).appendTo($('#ul_list'));
 	$('#ul_list').listview().listview( "refresh" );
+	$('#txt_add').val('');
 
 	$('a[fType=del]').bind( "click", function() {
   		onclkDel($(this));
