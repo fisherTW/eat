@@ -37,12 +37,12 @@ $jobj_tag = json_encode(
 
 function getFooterNav($jobj) {
 	for($i=0; $i < count($jobj); $i++) {
-		$class_active = ($jobj[$i]->active == 1 ? "class='ui-btn-active'" : '');
-		$html_btn .= "<li><a data-icon='".$jobj[$i]->icon."' href='".$jobj[$i]->href."' $class_active>".$jobj[$i]->text."</a></li>";
+		//$class_active = ($jobj[$i]->active == 1 ? 'ui-btn-active' : '');
+		$html_btn .= "<li><a data-icon='".$jobj[$i]->icon."' href='".$jobj[$i]->href."' class='ui-state-persist ui-btn-active'>".$jobj[$i]->text."</a></li>";
 	}
 	
 	$str="
-	<div data-role='footer' data-position='fixed'>
+	<div data-role='footer' data-id='div_footer' data-position='fixed'>
 	    <div data-role='navbar'>
 	        <ul>
 	            $html_btn

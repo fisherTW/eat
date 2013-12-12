@@ -70,7 +70,8 @@ function main() {
 			});
 		});
 		</script>
-		<div class='ui-body-b ui-body'>
+		<div data-role='header' data-position='fixed'></div>
+		<div data-role='content' data-position='inline' >
 		<div class='ui-grid-a'>
     		<div class='ui-block-a'>
 				<input type='text' id='txt_add' data-clear-btn='true' data-theme='c' value='在這裡輸入' data-inline='true'></div>
