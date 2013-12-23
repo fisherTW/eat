@@ -1,6 +1,6 @@
 <?
 session_start();
-require_once("inc/lib.inc");
+require("inc/lib.inc");
 
 if($_POST['ajax'] == 1) {
 	echo ajaxHandle($_POST['req']);
@@ -13,16 +13,11 @@ function main() {
 	global $jobj_tag;
 	
 	$jobj = json_decode($jobj_tag);
+	$footerNav = getFooterNav($jobj);
 
 	// index
-	$jobj[0]->active = 1;
-	$jobj[1]->active = 0;
-	$footerNav_index = getFooterNav($jobj);
 	
 	// setting
-	$jobj[0]->active = 0;
-	$jobj[1]->active = 1;
-	$footerNav_setting = getFooterNav($jobj);
 	for($i=0; $i < count($_SESSION['myFood']); $i++) {
 		$list_food .= getli($_SESSION['myFood'][$i]);
 	}
@@ -45,9 +40,14 @@ function main() {
 </head>
 
 <body>
+	<!-- Index Page -->
 	<div id='div_indexPage' data-role='page'>
 		<script type='text/javascript'>
 		$( document ).delegate('#div_indexPage', 'pageinit', function() {
+			var $footers = $(document).find('div[data-role='footer']');
+			$footers.find('a').removeClass('ui-btn-active');
+			$footers.find('a[data-name='' + page
+			        .attr('data-active-footer') + '']').addClass('ui-btn-active');
 		});
 		</script>
 		<div data-role='header' data-position='fixed'></div>
@@ -56,9 +56,26 @@ function main() {
 			<div id='div_show' style='display:none;text-align:center;font-size:48pt;'></div>
 			<div id='div_btn' class='center-button'><input type='button' id='btn_go' data-icon='check' data-iconpos='top' value='吃什麼' data-inline='true' onclick='onclkGo();'></div>
 		</div>
-		$footerNav_index
+		$footerNav
 	</div>
-		
+	
+	<!-- About Page -->
+	<div id='div_aboutPage' data-role='page'>
+		<script type='text/javascript'>
+		$( document ).delegate('#div_indexPage', 'pageinit', function() {
+		});
+		</script>
+		<div data-role='header' data-position='fixed'></div>
+		<div data-role='content' data-position='inline' align='center'>
+			<h1>project .eat//</h1>
+			<p>Version: ".VERSION."</p>
+			<p>Author: Fisher Liao</p>
+			<p>email: fisher_liao@gmail.com</p>
+		</div>
+		$footerNav
+	</div>
+	
+	<!-- Setting Page -->
 	<div id='div_settingPage' data-role='page'>
 		<script type='text/javascript'>
 		$( document ).delegate('#div_settingPage', 'pageinit', function() {
@@ -83,7 +100,7 @@ function main() {
 		<ul id='ul_list' data-role='listview' data-split-icon='minus' data-theme='c' data-split-theme='c' data-inset='true'>
 		$list_food</ul>
 		</div>
-		$footerNav_setting
+		$footerNav
 		</div>
 	</div>
 </body></html>";
