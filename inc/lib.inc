@@ -1,4 +1,4 @@
-<?
+<?php
 if(!is_array($_SESSION['myFood'])) {
 	$_SESSION['myFood'] = array();
 }

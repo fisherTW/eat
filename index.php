@@ -1,4 +1,4 @@
-<?
+<?php
 session_start();
 require("inc/lib.inc");
 
@@ -26,6 +26,7 @@ function main() {
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset='UTF-8'>
 <title>eat</title>
 	<link rel='stylesheet' href='http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css' />
 	<link rel='stylesheet' href='css/animate.min.css' />
@@ -34,7 +35,6 @@ function main() {
 	<script src='http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js'></script>
 	<script src='js/eat.js' type='text/javascript'></script>
 	<script src='js/setting.js' type='text/javascript'></script>
-  	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
 	<meta name='viewport' content='width=device-width, initial-scale=1,width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0,user-scalable=no;'>
 	
 </head>
