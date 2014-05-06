@@ -27,6 +27,7 @@ $jobj_tag = json_encode(
 );
 
 function getFooterNav($jobj) {
+	$html_btn = '';
 	for($i=0; $i < count($jobj); $i++) {
 		//$class_active = ($jobj[$i]->active == 1 ? 'ui-btn-active' : '');
 		$html_btn .= "<li><a data-icon='".$jobj[$i]->icon."' href='".$jobj[$i]->href."'>".$jobj[$i]->text."</a></li>";

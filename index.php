@@ -2,6 +2,10 @@
 session_start();
 require("inc/lib.inc");
 
+if(!isset($_POST['ajax'])) {
+	$_POST['ajax'] = 0;
+}
+
 if($_POST['ajax'] == 1) {
 	echo ajaxHandle($_POST['req']);
 } else {
@@ -11,6 +15,9 @@ if($_POST['ajax'] == 1) {
 function main() {
 	global $hidden_count;
 	global $jobj_tag;
+	
+	$list_food = '';
+	$footers = '';
 	
 	$jobj = json_decode($jobj_tag);
 	$footerNav = getFooterNav($jobj);
